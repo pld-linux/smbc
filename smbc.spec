@@ -34,7 +34,7 @@ po³±czenia, obs³ugê wielu jêzyków wspiera równie¿ standard kodowania
 znaków UTF8.
 
 %prep
-%setup -q -n smbc
+%setup -q -n %{name}
 %patch0 -p1
 
 %build
@@ -51,17 +51,18 @@ znaków UTF8.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale/pl/LC_MESSAGES}
 
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale/pl/LC_MESSAGES/}
 install src/smbc $RPM_BUILD_ROOT%{_bindir}
 install src/smbc-utf-x $RPM_BUILD_ROOT%{_bindir}
 install po/pl.gmo $RPM_BUILD_ROOT%{_datadir}/locale/pl/LC_MESSAGES/smbc.mo
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc FAQ README doc/sample.smbcrc
 %attr(755,root,root) %{_bindir}/*
-%lang(pl) %{_datadir}/locale/pl/LC_MESSAGES/smbc.mo
