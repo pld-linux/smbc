@@ -1,13 +1,13 @@
 Summary:	Simple Samba Commander
 Summary(pl):	Konsolowa przegl±darka otoczenia sieciowego
 Name:		smbc
-Version:	0.9.0
+Version:	1.0.0
 Release:	0.1
 License:	GPL
 Group:		Applications/Networking	
 Source0:	http://dl.sourceforge.net/smbc/%{name}-%{version}.tgz
-# Source0-md5:	d89209fc65cdc2cc949de26f2bc1c35d
-# Source0-size:	750374
+# Source0-md5:	093aa96b9f20625cea466e2faff43575
+# Source0-size:	730946
 Source1:	%{name}.desktop
 Patch0:		%{name}-ncurses.patch
 URL:		http://smbc.airm.net/
@@ -54,11 +54,11 @@ znaków UTF8.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale/pl/LC_MESSAGES,%{_desktopdir}}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT 
 
-install src/smbc $RPM_BUILD_ROOT%{_bindir}
-install src/smbc-utf-x $RPM_BUILD_ROOT%{_bindir}
-install po/pl.gmo $RPM_BUILD_ROOT%{_datadir}/locale/pl/LC_MESSAGES/smbc.mo
+install -d $RPM_BUILD_ROOT%{_desktopdir}
+
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
@@ -66,8 +66,17 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
+%postun
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc FAQ README doc/sample.smbcrc
 %attr(755,root,root) %{_bindir}/*
 %{_desktopdir}/%{name}.desktop
+%{_infodir}/*.info*
+%{_mandir}/man1/smbc.*
+%{_mandir}/man1/smbcrc.*
