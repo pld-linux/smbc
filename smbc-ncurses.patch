@@ -1,0 +1,48 @@
+diff -urN smbc.orig/configure smbc/configure
+--- smbc.orig/configure	2004-05-06 12:44:07.000000000 +0000
++++ smbc/configure	2004-05-08 09:01:14.658049408 +0000
+@@ -6807,7 +6807,7 @@
+ done
+ 
+ 
+-for ac_header in curses.h
++for ac_header in ncurses/curses.h
+ do
+ as_ac_Header=`echo "ac_cv_header_$ac_header" | $as_tr_sh`
+ if eval "test \"\${$as_ac_Header+set}\" = set"; then
+diff -urN smbc.orig/configure.in smbc/configure.in
+--- smbc.orig/configure.in	2004-05-02 14:46:30.000000000 +0000
++++ smbc/configure.in	2004-05-08 09:00:44.418646496 +0000
+@@ -44,7 +44,7 @@
+ AC_CHECK_HEADERS([errno.h])
+ AC_CHECK_HEADERS([time.h])
+ AC_CHECK_HEADERS([termios.h])
+-AC_CHECK_HEADERS([curses.h])
++AC_CHECK_HEADERS([ncurses/curses.h])
+ AC_CHECK_HEADERS([dirent.h])
+ AC_CHECK_HEADERS([signal.h])
+ AC_CHECK_HEADERS([stdio.h])
+diff -urN smbc.orig/src/fnet.h smbc/src/fnet.h
+--- smbc.orig/src/fnet.h	2004-04-06 12:51:54.000000000 +0000
++++ smbc/src/fnet.h	2004-05-08 08:58:32.265736792 +0000
+@@ -10,7 +10,7 @@
+   last update: 2004-04-06
+ */
+ // -------------------------------------------------------------------
+-#include <curses.h>
++#include <ncurses/curses.h>
+ 
+ int readline(register int fd, register char *ptr, register int maxlen);
+ int writen(register int fd, register char *ptr, register int nbytes);
+diff -urN smbc.orig/src/headers.h smbc/src/headers.h
+--- smbc.orig/src/headers.h	2004-05-03 16:59:46.000000000 +0000
++++ smbc/src/headers.h	2004-05-08 08:59:11.812724736 +0000
+@@ -23,7 +23,7 @@
+ #include <time.h>
+ #include <sys/param.h>
+ #include <termios.h>
+-#include <curses.h>
++#include <ncurses/curses.h>
+ #include <dirent.h>
+ #include <signal.h>
+ #include <stdio.h>
