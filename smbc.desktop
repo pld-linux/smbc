@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=smbc
+Type=Application
+Comment=Client to connect to remote machines via a text interface
+Comment[pl]=Konsolowa przeglądarka otoczenia sieciowego
+Exec=smbc
+Terminal=true
+Categories=Network;
+Encoding=UTF-8
+# vi: encoding=utf-8
