@@ -36,7 +36,7 @@ po³±czenia, obs³ugê wielu jêzyków wspiera równie¿ standard kodowania
 znaków UTF8.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 %patch0 -p1
 
 %build
@@ -67,6 +67,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%{_desktopdir}/%{name}.desktop
 %doc FAQ README doc/sample.smbcrc
 %attr(755,root,root) %{_bindir}/*
+%{_desktopdir}/%{name}.desktop
