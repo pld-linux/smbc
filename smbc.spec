@@ -8,7 +8,7 @@ Group:		Applications/Networking
 Source0:	http://www.air.rzeszow.pl/smbc/smbc/current/%{name}-%{version}.tgz
 # Source0-md5:	678700ce4c7390bab77555089e98d5ce
 Patch0:		%{name}-ncurses.patch
-URL:		http://freshmeat.net/projects/sambacommander/
+URL:		http://www.air.rzeszow.pl/smbc/smbc/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
