@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications/Networking	
 Source0:	http://www.air.rzeszow.pl/smbc/smbc/current/%{name}-%{version}.tgz
 # Source0-md5:	678700ce4c7390bab77555089e98d5ce
+Source1:	%{name}.desktop
 Patch0:		%{name}-ncurses.patch
 URL:		http://www.air.rzeszow.pl/smbc/smbc/
 BuildRequires:	autoconf
@@ -51,11 +52,12 @@ znaków UTF8.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale/pl/LC_MESSAGES}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/locale/pl/LC_MESSAGES,%{_desktopdir}}
 
 install src/smbc $RPM_BUILD_ROOT%{_bindir}
 install src/smbc-utf-x $RPM_BUILD_ROOT%{_bindir}
 install po/pl.gmo $RPM_BUILD_ROOT%{_datadir}/locale/pl/LC_MESSAGES/smbc.mo
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
 
@@ -64,5 +66,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
+%{_desktopdir}/%{name}.desktop
 %doc FAQ README doc/sample.smbcrc
 %attr(755,root,root) %{_bindir}/*
