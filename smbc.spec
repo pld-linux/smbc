@@ -2,7 +2,7 @@ Summary:	Simple Samba Commander
 Summary(pl):	Konsolowa przegl±darka otoczenia sieciowego
 Name:		smbc
 Version:	1.0.0
-Release:	0.1
+Release:	1
 License:	GPL
 Group:		Applications/Networking	
 Source0:	http://dl.sourceforge.net/smbc/%{name}-%{version}.tgz
@@ -18,6 +18,7 @@ BuildRequires:	libsmbclient-devel >= 3.0
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	popt-devel
+Requires:	samba
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -58,7 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT 
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
-
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name}
