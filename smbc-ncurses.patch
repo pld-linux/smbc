@@ -1,7 +1,7 @@
-diff -urN smbc-1.0.0.orig/configure.in smbc-1.0.0/configure.in
---- smbc-1.0.0.orig/configure.in	2004-09-29 13:50:05.000000000 +0000
-+++ smbc-1.0.0/configure.in	2004-10-12 06:42:42.018512072 +0000
-@@ -42,7 +42,7 @@
+diff -ur smbc-1.1.1/configure.in smbc-1.1.1.new/configure.in
+--- smbc-1.1.1/configure.in	2005-02-11 17:28:05.000000000 +0000
++++ smbc-1.1.1.new/configure.in	2005-02-14 23:16:53.433422504 +0000
+@@ -44,7 +44,7 @@
  AC_CHECK_HEADERS([errno.h])
  AC_CHECK_HEADERS([time.h])
  AC_CHECK_HEADERS([termios.h])
@@ -10,22 +10,22 @@ diff -urN smbc-1.0.0.orig/configure.in smbc-1.0.0/configure.in
  AC_CHECK_HEADERS([dirent.h])
  AC_CHECK_HEADERS([signal.h])
  AC_CHECK_HEADERS([stdio.h])
-diff -urN smbc-1.0.0.orig/src/fnet.h smbc-1.0.0/src/fnet.h
---- smbc-1.0.0.orig/src/fnet.h	2004-09-06 16:41:22.000000000 +0000
-+++ smbc-1.0.0/src/fnet.h	2004-10-12 06:40:50.930400032 +0000
-@@ -10,7 +10,7 @@
-   last update: 2004-08-08
+diff -ur smbc-1.1.1/src/fnet.h smbc-1.1.1.new/src/fnet.h
+--- smbc-1.1.1/src/fnet.h	2005-02-14 18:34:50.000000000 +0000
++++ smbc-1.1.1.new/src/fnet.h	2005-02-14 23:17:12.584511096 +0000
+@@ -9,7 +9,7 @@
  */
  // -------------------------------------------------------------------
+ #define Rfree(ptr) free(ptr); ptr = NULL
 -#include <curses.h>
 +#include <ncurses/curses.h>
  
  int readline(register int fd, register char *ptr, register int maxlen);
  int writen(register int fd, register char *ptr, register int nbytes);
-diff -urN smbc-1.0.0.orig/src/smb-pack.c smbc-1.0.0/src/smb-pack.c
---- smbc-1.0.0.orig/src/smb-pack.c	2004-09-21 07:57:46.000000000 +0000
-+++ smbc-1.0.0/src/smb-pack.c	2004-10-12 06:41:24.440305752 +0000
-@@ -20,7 +20,7 @@
+diff -ur smbc-1.1.1/src/smb-pack.c smbc-1.1.1.new/src/smb-pack.c
+--- smbc-1.1.1/src/smb-pack.c	2005-02-08 13:09:13.000000000 +0000
++++ smbc-1.1.1.new/src/smb-pack.c	2005-02-14 23:17:34.908117392 +0000
+@@ -18,7 +18,7 @@
  #endif /* HAVE_STRINGS_H */
  #endif /* not HAVE_STRING_H */
  
