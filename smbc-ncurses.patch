@@ -1,19 +1,7 @@
-diff -urN smbc.orig/configure smbc/configure
---- smbc.orig/configure	2004-05-06 12:44:07.000000000 +0000
-+++ smbc/configure	2004-05-08 09:01:14.658049408 +0000
-@@ -6807,7 +6807,7 @@
- done
- 
- 
--for ac_header in curses.h
-+for ac_header in ncurses/curses.h
- do
- as_ac_Header=`echo "ac_cv_header_$ac_header" | $as_tr_sh`
- if eval "test \"\${$as_ac_Header+set}\" = set"; then
-diff -urN smbc.orig/configure.in smbc/configure.in
---- smbc.orig/configure.in	2004-05-02 14:46:30.000000000 +0000
-+++ smbc/configure.in	2004-05-08 09:00:44.418646496 +0000
-@@ -44,7 +44,7 @@
+diff -urN smbc-1.0.0.orig/configure.in smbc-1.0.0/configure.in
+--- smbc-1.0.0.orig/configure.in	2004-09-29 13:50:05.000000000 +0000
++++ smbc-1.0.0/configure.in	2004-10-12 06:42:42.018512072 +0000
+@@ -42,7 +42,7 @@
  AC_CHECK_HEADERS([errno.h])
  AC_CHECK_HEADERS([time.h])
  AC_CHECK_HEADERS([termios.h])
@@ -22,11 +10,11 @@ diff -urN smbc.orig/configure.in smbc/configure.in
  AC_CHECK_HEADERS([dirent.h])
  AC_CHECK_HEADERS([signal.h])
  AC_CHECK_HEADERS([stdio.h])
-diff -urN smbc.orig/src/fnet.h smbc/src/fnet.h
---- smbc.orig/src/fnet.h	2004-04-06 12:51:54.000000000 +0000
-+++ smbc/src/fnet.h	2004-05-08 08:58:32.265736792 +0000
+diff -urN smbc-1.0.0.orig/src/fnet.h smbc-1.0.0/src/fnet.h
+--- smbc-1.0.0.orig/src/fnet.h	2004-09-06 16:41:22.000000000 +0000
++++ smbc-1.0.0/src/fnet.h	2004-10-12 06:40:50.930400032 +0000
 @@ -10,7 +10,7 @@
-   last update: 2004-04-06
+   last update: 2004-08-08
  */
  // -------------------------------------------------------------------
 -#include <curses.h>
@@ -34,15 +22,15 @@ diff -urN smbc.orig/src/fnet.h smbc/src/fnet.h
  
  int readline(register int fd, register char *ptr, register int maxlen);
  int writen(register int fd, register char *ptr, register int nbytes);
-diff -urN smbc.orig/src/headers.h smbc/src/headers.h
---- smbc.orig/src/headers.h	2004-05-03 16:59:46.000000000 +0000
-+++ smbc/src/headers.h	2004-05-08 08:59:11.812724736 +0000
-@@ -23,7 +23,7 @@
- #include <time.h>
- #include <sys/param.h>
- #include <termios.h>
+diff -urN smbc-1.0.0.orig/src/smb-pack.c smbc-1.0.0/src/smb-pack.c
+--- smbc-1.0.0.orig/src/smb-pack.c	2004-09-21 07:57:46.000000000 +0000
++++ smbc-1.0.0/src/smb-pack.c	2004-10-12 06:41:24.440305752 +0000
+@@ -20,7 +20,7 @@
+ #endif /* HAVE_STRINGS_H */
+ #endif /* not HAVE_STRING_H */
+ 
 -#include <curses.h>
 +#include <ncurses/curses.h>
- #include <dirent.h>
- #include <signal.h>
- #include <stdio.h>
+ #include <libsmbclient.h>
+ #include <unistd.h>
+ #include <stdlib.h>
