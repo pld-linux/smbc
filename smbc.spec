@@ -1,12 +1,12 @@
 Summary:	Simple Samba Commander
 Summary(pl):	Konsolowa przegl±darka otoczenia sieciowego
 Name:		smbc
-Version:	1.1.0
+Version:	1.1.1
 Release:	1
 License:	GPL
 Group:		Applications/Networking	
 Source0:	http://dl.sourceforge.net/smbc/%{name}-%{version}.tgz
-# Source0-md5:	47a93b187e8a605e6fd09d0ed15f6971
+# Source0-md5:	93d6c8c47f2b5bdf4e45f31465f4349e
 Source1:	%{name}.desktop
 Patch0:		%{name}-ncurses.patch
 URL:		http://smbc.airm.net/
