@@ -1,14 +1,13 @@
 Summary:	Simple Samba Commander
 Summary(pl):	Konsolowa przegl±darka otoczenia sieciowego
 Name:		smbc
-Version:	1.1.2
+Version:	1.2.0
 Release:	1
 License:	GPL
 Group:		Applications/Networking	
 Source0:	http://dl.sourceforge.net/smbc/%{name}-%{version}.tgz
-# Source0-md5:	9066d9e5cae5313301e17009964b19d0
+# Source0-md5:	9b080541425a2b869a14667d3bbd122a
 Source1:	%{name}.desktop
-Patch0:		%{name}-ncurses.patch
 URL:		http://smbc.airm.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -17,6 +16,7 @@ BuildRequires:	libsmbclient-devel >= 3.0
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	popt-devel
+BuildRequires:	sed >= 4.0
 Requires:	samba
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,7 +38,7 @@ znaków UTF8.
 
 %prep
 %setup -q
-%patch0 -p1
+sed -i 's@<curses.h>@<ncurses/curses.h>@' src/*
 
 %build
 %{__gettextize}
