@@ -5,11 +5,12 @@ Version:	0.9.0
 Release:	0.1
 License:	GPL
 Group:		Applications/Networking	
-Source0:	http://www.air.rzeszow.pl/smbc/smbc/%{version}/%{name}-%{version}.tgz
+Source0:	http://dl.sourceforge.net/smbc/%{name}-%{version}.tgz
 # Source0-md5:	d89209fc65cdc2cc949de26f2bc1c35d
+# Source0-size:	750374
 Source1:	%{name}.desktop
 Patch0:		%{name}-ncurses.patch
-URL:		http://www.air.rzeszow.pl/smbc/smbc/
+URL:		http://smbc.airm.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
