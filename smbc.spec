@@ -4,7 +4,7 @@ Name:		smbc
 Version:	1.2.2
 Release:	1
 License:	GPL
-Group:		Applications/Networking	
+Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/smbc/%{name}-%{version}.tgz
 # Source0-md5:	f5c1a16ea0378d96cb27e8d96229e8ad
 Source1:	%{name}.desktop
@@ -56,7 +56,7 @@ sed -i 's@<curses.h>@<ncurses/curses.h>@' src/*
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT 
+	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
