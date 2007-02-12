@@ -1,5 +1,5 @@
 Summary:	Simple Samba Commander
-Summary(pl):	Konsolowa przegl±darka otoczenia sieciowego
+Summary(pl.UTF-8):   Konsolowa przeglÄ…darka otoczenia sieciowego
 Name:		smbc
 Version:	1.2.2
 Release:	1
@@ -27,14 +27,14 @@ find the files. You can also download and upload files or all
 directories to your computer or create remote and local directories.
 SMBC has a resume function and supports UTF-8 characters.
 
-%description -l pl
-Simple Samba Commander jest prost± tekstow± przegl±dark± sieci opartej
-o protokó³ SMB. Za pomoc± SMBC mo¿na przegl±daæ sieæ lokaln± lub w
-poszukiwaniu konkretnego pliku wykorzystaæ funkcjê wyszukiwania.
-Dostêpna jest równie¿ funkcja pobierania oraz wysy³ania plików jak i
-ca³ych katalogów. SMBC zawiera funkcje automatycznego wznawiania
-po³±czenia, obs³ugê wielu jêzyków wspiera równie¿ standard kodowania
-znaków UTF8.
+%description -l pl.UTF-8
+Simple Samba Commander jest prostÄ… tekstowÄ… przeglÄ…darkÄ… sieci opartej
+o protokÃ³Å‚ SMB. Za pomocÄ… SMBC moÅ¼na przeglÄ…daÄ‡ sieÄ‡ lokalnÄ… lub w
+poszukiwaniu konkretnego pliku wykorzystaÄ‡ funkcjÄ™ wyszukiwania.
+DostÄ™pna jest rÃ³wnieÅ¼ funkcja pobierania oraz wysyÅ‚ania plikÃ³w jak i
+caÅ‚ych katalogÃ³w. SMBC zawiera funkcje automatycznego wznawiania
+poÅ‚Ä…czenia, obsÅ‚ugÄ™ wielu jÄ™zykÃ³w wspiera rÃ³wnieÅ¼ standard kodowania
+znakÃ³w UTF8.
 
 %prep
 %setup -q
