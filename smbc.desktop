@@ -6,5 +6,4 @@ Comment[pl]=Konsolowa przeglądarka otoczenia sieciowego
 Exec=smbc
 Terminal=true
 Categories=Network;
-Encoding=UTF-8
 # vi: encoding=utf-8
