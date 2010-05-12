@@ -5,5 +5,5 @@ Comment=Client to connect to remote machines via a text interface
 Comment[pl]=Konsolowa przeglądarka otoczenia sieciowego
 Exec=smbc
 Terminal=true
-Categories=Network;
+Categories=Network;RemoteAccess;
 # vi: encoding=utf-8
