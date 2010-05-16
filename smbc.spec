@@ -17,6 +17,7 @@ BuildRequires:	libtool
 BuildRequires:	ncurses-devel
 BuildRequires:	popt-devel
 BuildRequires:	sed >= 4.0
+BuildRequires:	texinfo
 Requires:	samba
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
