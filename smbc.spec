@@ -11,7 +11,7 @@ Source1:	%{name}.desktop
 URL:		http://smbc.airm.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	libsmbclient-devel >= 3.0
 BuildRequires:	libtool
 BuildRequires:	ncurses-devel
