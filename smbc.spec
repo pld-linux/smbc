@@ -2,7 +2,7 @@ Summary:	Simple Samba Commander
 Summary(pl.UTF-8):	Konsolowa przeglądarka otoczenia sieciowego
 Name:		smbc
 Version:	1.2.2
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/smbc/%{name}-%{version}.tgz
