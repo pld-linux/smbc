@@ -1,0 +1,100 @@
+--- smbc-1.2.2/configure.in~	2005-06-29 14:14:02.000000000 +0200
++++ smbc-1.2.2/configure.in	2015-12-12 17:56:51.436162981 +0100
+@@ -65,6 +65,8 @@ AC_TYPE_MODE_T
+ AC_TYPE_OFF_T
+ AC_TYPE_SIZE_T
+ 
++AC_SYS_LARGEFILE
++
+ # Checks for library functions.
+ AC_FUNC_CLOSEDIR_VOID
+ AC_FUNC_FORK
+--- smbc-1.2.2/src/Makefile.am~	2015-12-12 17:55:12.000000000 +0100
++++ smbc-1.2.2/src/Makefile.am	2015-12-12 17:56:17.811965608 +0100
+@@ -17,13 +17,6 @@ smbc_SOURCES = smbc.c \
+               downloadlist.c downloadlist.h \
+               smb-ext.c smb-ext.h
+ 
+-smbc_CFLAGS = -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE -Wall
+-CFLAGS = -O3
+-
+-if GDB
+-  smbc_CFLAGS += -ggdb -g
+-endif
+-
+ smbc_LDADD = @LIBINTL@
+ 
+ localedir = $(prefix)/share/locale
+--- smbc-1.2.2/src/Makefile.am~	2015-12-12 17:57:36.000000000 +0100
++++ smbc-1.2.2/src/Makefile.am	2015-12-12 17:58:44.515735450 +0100
+@@ -21,5 +21,5 @@ smbc_LDADD = @LIBINTL@
+ 
+ localedir = $(prefix)/share/locale
+ mandir = $(prefix)/share/man
+-INCLUDES = -I../intl -DLOCALEDIR=\"$(localedir)\"
++INCLUDES = $(CPPFLAGS) -I../intl -DLOCALEDIR=\"$(localedir)\"
+ 
+--- smbc-1.2.2/src/smbc.c~	2015-12-12 21:04:51.000000000 +0100
++++ smbc-1.2.2/src/smbc.c	2015-12-12 21:07:31.503088019 +0100
+@@ -3616,8 +3616,8 @@ RreadRcfile()
+   if (access(Rfile, F_OK) != 0) 
+   {
+     printf(Rm242, Rfile);
+-    printf(Rm243);
+-    printf(Rm244);
++    printf("%s", Rm243);
++    printf("%s", Rm244);
+     return;
+   }
+   Rfd = open(Rfile, O_RDONLY);
+@@ -5575,8 +5575,8 @@ RsigTerm()
+   endwin();
+   if (!Ri) 
+   {
+-    printf(Rm156);
+-    printf(Rm157);
++    printf("%s", Rm156);
++    printf("%s", Rm157);
+   }
+   if ((RmainWinX < 80) || (RmainWinY < 25)) 
+     printf(Rm158, RmainWinX, RmainWinY);
+@@ -5589,7 +5589,7 @@ RsigTerm()
+   if (Rerror) 
+   {
+     printf("**********************************************************\n");
+-    printf(Rm159);
++    printf("%s", Rm159);
+     printf("**********************************************************\n");
+   }
+ 
+@@ -7024,7 +7024,7 @@ RDBG("smbc: main 100\n");
+ #ifdef HAVE_SET_CONTEXT
+    Rsmbc_set_context(Rstatcont);
+ #else /* not HAVE_SET_CONTEXT */
+-   printf(Rm177);
++   printf("%s", Rm177);
+ #endif /* not HAVE_SET_CONTEXT */
+ 
+  RtryLockFileAndCreateIndexFile();
+--- smbc-1.2.2/src/smbc.c~	2015-12-12 21:07:56.000000000 +0100
++++ smbc-1.2.2/src/smbc.c	2015-12-12 21:08:57.228616113 +0100
+@@ -6990,7 +6990,7 @@ main(int argc,char *argv[])
+  {
+    fprintf(stderr, Rm175, errno);
+    if (errno == 2) 
+-     fprintf(stderr, Rm176);
++     fprintf(stderr, "%s", Rm176);
+    exit(0);
+  }
+ 
+--- smbc-1.2.2/src/dulist.c~	2015-12-12 21:07:56.000000000 +0100
++++ smbc-1.2.2/src/dulist.c	2015-12-12 21:09:21.612573730 +0100
+@@ -200,7 +200,7 @@ RShowAllItemsFromDUlist(int RnrDulist)
+         Rstraddtoend(&RstrT, "/");
+         Rstraddtoend(&RstrT, Rdls->filename);
+         Rstraddtoend(&RstrT, "\n");
+-        printf(to_scr(RstrT));
++        printf("%s", to_scr(RstrT));
+         Rfree(RstrT);
+         RfreeOneTTdownloadAndGoToFirst(&Rdls);
+       }

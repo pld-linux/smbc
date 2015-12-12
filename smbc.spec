@@ -2,12 +2,13 @@ Summary:	Simple Samba Commander
 Summary(pl.UTF-8):	Konsolowa przeglądarka otoczenia sieciowego
 Name:		smbc
 Version:	1.2.2
-Release:	5
+Release:	6
 License:	GPL
 Group:		Applications/Networking
 Source0:	http://dl.sourceforge.net/smbc/%{name}-%{version}.tgz
 # Source0-md5:	f5c1a16ea0378d96cb27e8d96229e8ad
 Source1:	%{name}.desktop
+Patch0:		%{name}-build.patch
 URL:		http://smbc.airm.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -39,18 +40,22 @@ znaków UTF8.
 
 %prep
 %setup -q
+%patch0 -p1
+
 rm -rf src/CVS
 sed -i 's@<curses.h>@<ncurses/curses.h>@' src/*
 
 %build
 %{__gettextize}
 %{__libtoolize}
+sed -i -e 's#-Werror##g' -e 's#-Wformat##g' */*.m4
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 
-%configure
+%configure \
+	CPPFLAGS="%{rpmcppflags} $(pkg-config --cflags smbclient)"
 
 %{__make}
 
